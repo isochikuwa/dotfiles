@@ -1,0 +1,65 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+    let g:indent_guides_enable_on_vim_startup = 1
+'''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+let g:quickrun_config = {
+    \ '_' : {
+        \ 'runner' : 'vimproc',
+        \ 'runner/vimproc/updatetime' : 40,
+        \ 'outputter' : 'error',
+        \ 'outputter/error/success' : 'buffer',
+        \ 'outputter/error/error' : 'quickfix',
+        \ 'outputter/buffer/split' : ':botright 8sp',
+        \ }
+    \}
+'''
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'jsfaint/gen_tags.vim'
+hook_add = '''
+    let g:gen_tags#ctags_auto_gen = 1
+    let g:gen_tags#gtags_auto_gen = 1
+'''
+
+[[plugins]]
+repo = 'kannokanno/previm'
+# hook_add = "let g:previm_open_cmd = 'open -a google-chrome'"
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
