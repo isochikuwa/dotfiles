@@ -90,9 +90,6 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:previm_open_cmd = 'open -a google-chrome'
 let g:previm_enable_realtime = 1
 
-" keymap
-" inoremap { {}<LEFT>
-" inoremap ( ()<LEFT>
 
 " filetype
 " 最後あたりに書くこと
