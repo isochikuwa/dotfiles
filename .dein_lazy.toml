@@ -18,6 +18,11 @@ on_ft = 'python'
 
 [[plugins]]
 repo = 'Shougo/deoplete-rct'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = ['ruby']
 
 [[plugins]]
 repo = 'fatih/vim-go'
@@ -26,3 +31,4 @@ on_ft = 'go'
 [[plugins]]
 repo = 'zchee/deoplete-go'
 on_ft = 'go'
+

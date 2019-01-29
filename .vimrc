@@ -1,6 +1,7 @@
 " 最初の方に書くこと
 filetype off
 
+set cursorline
 set termguicolors
 set number
 set encoding=utf-8
@@ -78,7 +79,8 @@ if dein#check_install()
 endif
 
 " colorscheme
-colorscheme molokai
+" colorscheme molokai
+colorscheme iceberg
 
 " airlineの設定
 let g:airline_powerline_fonts = 1
@@ -87,9 +89,9 @@ let g:airline_theme = 'molokai'
 let g:airline#extensions#tabline#enabled = 1
 
 " previm setting
-" let g:previm_open_cmd = 'open -a google-chrome'
 let g:previm_enable_realtime = 1
 
+set switchbuf=useopen
 
 " filetype
 " 最後あたりに書くこと
