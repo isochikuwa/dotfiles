@@ -69,3 +69,12 @@ repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'rking/ag.vim'
+
+[[plugins]]
+repo = "airblade/vim-gitgutter"
+
+[[plugins]]
+repo = "tpope/vim-fugitive"
