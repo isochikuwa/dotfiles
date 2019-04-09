@@ -96,10 +96,9 @@ set switchbuf=useopen
 " filetype毎にインデントを変える
 augroup fileTypeIndent
     autocmd!
-    autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
-    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
     autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    autocmd BufNewFile,BufRead *.erb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd Filetype eruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 augroup END
 " 最後あたりに書くこと
 filetype plugin indent on
