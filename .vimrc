@@ -100,6 +100,7 @@ augroup fileTypeIndent
     autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     autocmd Filetype eruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd Filetype sql setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    autocmd Filetype eruby.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 augroup END
 " 最後あたりに書くこと
 filetype plugin indent on
