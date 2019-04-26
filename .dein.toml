@@ -84,3 +84,6 @@ repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'taiansu/nerdtree-ag'
