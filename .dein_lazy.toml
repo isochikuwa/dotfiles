@@ -6,10 +6,11 @@ on_i = 1
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = 'has("nvim")'
-on_i = 1
-hook_add = '''
-let g:deoplete#enable_at_startup = 1
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 0
 '''
+on_i = 1
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'

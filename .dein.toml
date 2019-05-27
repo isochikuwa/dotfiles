@@ -71,7 +71,10 @@ repo = 'cohama/lexima.vim'
 repo = 'mattn/emmet-vim'
 
 [[plugins]]
-repo = 'rking/ag.vim'
+repo = 'mileszs/ack.vim'
+hook_add = '''
+    let g:ackprg = 'ag --vimgrep'
+'''
 
 [[plugins]]
 repo = "airblade/vim-gitgutter"
