@@ -24,6 +24,7 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
     let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_guide_size = 1
 '''
 
 [[plugins]]
@@ -90,3 +91,22 @@ repo = 'tpope/vim-rails'
 
 [[plugins]]
 repo = 'taiansu/nerdtree-ag'
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+hook_add = '''
+  set hidden
+  let g:LanguageClient_serverCommands = {
+    \ 'vue': ['vls'],
+    \ 'ts': ['typescript-language-server']
+    \ }
+'''
+[[plugins]]
+repo = 'w0rp/ale'
+[[plugins]]
+repo = 'posva/vim-vue'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
