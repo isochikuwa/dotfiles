@@ -14,8 +14,8 @@ on_i = 1
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
-on_i = 1
-on_ft = 'python'
+on_event = 'InsertEnter'
+on_ft = ['python']
 
 [[plugins]]
 repo = 'Shougo/deoplete-rct'

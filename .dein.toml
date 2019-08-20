@@ -93,20 +93,24 @@ repo = 'tpope/vim-rails'
 repo = 'taiansu/nerdtree-ag'
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
+repo = 'neoclide/coc.nvim'
+rev = 'release'
 hook_add = '''
-  set hidden
-  let g:LanguageClient_serverCommands = {
-    \ 'vue': ['vls'],
-    \ 'ts': ['typescript-language-server']
-    \ }
+  nmap <silent> <space>f <Plug>(coc-format)
+  nmap <silent> <space><space> :<C-u>CocList<cr>
+  nmap <silent> <space>rn <Plug>(coc-rename)
+  nmap <silent> <space>h :<C-u>call CocAction('doHover')<cr>
+  nmap <silent> <space>d <Plug>(coc-definition)
+  nmap <silent> <space>rf <Plug>(coc-references)
 '''
+
 [[plugins]]
 repo = 'w0rp/ale'
 [[plugins]]
 repo = 'posva/vim-vue'
+hook_add = '''
+  let g:vim_vue_plugin_load_full_syntax = 1
+'''
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
