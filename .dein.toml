@@ -43,9 +43,6 @@ let g:quickrun_config = {
 '''
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 
 [[plugins]]
@@ -64,6 +61,10 @@ repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'xuyuanp/nerdtree-git-plugin'
+depends = ['nerdtree']
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
@@ -96,12 +97,14 @@ repo = 'taiansu/nerdtree-ag'
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 hook_add = '''
-  nmap <silent> <space>f <Plug>(coc-format)
-  nmap <silent> <space><space> :<C-u>CocList<cr>
-  nmap <silent> <space>rn <Plug>(coc-rename)
-  nmap <silent> <space>h :<C-u>call CocAction('doHover')<cr>
-  nmap <silent> <space>d <Plug>(coc-definition)
-  nmap <silent> <space>rf <Plug>(coc-references)
+  nnoremap [coc] <Nop>
+  nmap <space>c [coc]
+  nmap <silent> [coc]f <Plug>(coc-format)
+  nmap <silent> [coc]<space> :<C-u>CocList<cr>
+  nmap <silent> [coc]rn <Plug>(coc-rename)
+  nmap <silent> [coc]h :<C-u>call CocAction('doHover')<cr>
+  nmap <silent> [coc]d <Plug>(coc-definition)
+  nmap <silent> [coc]rf <Plug>(coc-references)
 '''
 
 [[plugins]]
@@ -114,3 +117,19 @@ hook_add = '''
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = ['fzf']
+hook_add = '''
+  nnoremap [fzf] <Nop>
+  nmap <space>f [fzf]
+  nmap <silent> [fzf]b :<C-u>Buffers<cr>
+  nmap <silent> [fzf]h :<C-u>History<cr>
+  nmap <silent> [fzf]g :<C-u>GFiles<cr>
+'''
+

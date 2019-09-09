@@ -104,6 +104,7 @@ augroup fileTypeIndent
     autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     autocmd Filetype vue syntax sync fromstart
 augroup END
+set diffopt=internal,filler,algorithm:histogram,indent-heuristic
 " 最後あたりに書くこと
 filetype plugin indent on
 
