@@ -108,8 +108,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'w0rp/ale'
-[[plugins]]
 repo = 'posva/vim-vue'
 hook_add = '''
   let g:vim_vue_plugin_load_full_syntax = 1
@@ -133,3 +131,9 @@ hook_add = '''
   nmap <silent> [fzf]g :<C-u>GFiles<cr>
 '''
 
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'vue']
