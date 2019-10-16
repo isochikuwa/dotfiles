@@ -91,7 +91,7 @@ repo = 'tpope/vim-surround'
 repo = 'tpope/vim-rails'
 
 [[plugins]]
-repo = 'taiansu/nerdtree-ag'
+repo = 'mtakezawa0522/nerdtree-ag'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
