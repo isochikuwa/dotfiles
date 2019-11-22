@@ -66,8 +66,10 @@ repo = 'scrooloose/nerdtree'
 repo = 'xuyuanp/nerdtree-git-plugin'
 depends = ['nerdtree']
 
+#[[plugins]]
+#repo = 'cohama/lexima.vim'
 [[plugins]]
-repo = 'cohama/lexima.vim'
+repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
