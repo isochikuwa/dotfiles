@@ -15,10 +15,12 @@ repo = 'tomasr/molokai'
 repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {
+  \ 'colorscheme' : 'wombat'
+\ }
+'''
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
@@ -66,8 +68,6 @@ repo = 'scrooloose/nerdtree'
 repo = 'xuyuanp/nerdtree-git-plugin'
 depends = ['nerdtree']
 
-#[[plugins]]
-#repo = 'cohama/lexima.vim'
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
 

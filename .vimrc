@@ -83,10 +83,10 @@ endif
 colorscheme iceberg
 
 " airlineの設定
-let g:airline_powerline_fonts = 1
-set laststatus=2
-let g:airline_theme = 'molokai'
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1
+"set laststatus=2
+"let g:airline_theme = 'molokai'
+"let g:airline#extensions#tabline#enabled = 1
 
 " previm setting
 let g:previm_enable_realtime = 1
