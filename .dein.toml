@@ -139,3 +139,6 @@ repo = 'scrooloose/nerdcommenter'
 [[plugins]]
 repo = 'prettier/vim-prettier'
 on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'vue']
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
