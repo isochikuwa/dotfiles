@@ -1,5 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
+export LANG=ja_JP.UTF-8
+
 ZSH_THEME="af-magic"
 plugins=(git) 
 source $ZSH/oh-my-zsh.sh
