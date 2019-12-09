@@ -1,4 +1,4 @@
 {
   "python.jediEnabled": false,
-  "python.pythonPath": "/Users/suraat/.pyenv/shims/python"
+  "python.pythonPath": "~/.pyenv/shims/python"
 }
