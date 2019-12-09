@@ -106,7 +106,6 @@ augroup fileTypeIndent
 augroup END
 
 " float window
-set termguicolors
 set pumblend=30
 set winblend=30
 
