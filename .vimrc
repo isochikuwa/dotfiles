@@ -4,6 +4,7 @@ filetype off
 set cursorline
 set termguicolors
 set number
+set relativenumber
 set encoding=utf-8
 scriptencoding utf-8
 
