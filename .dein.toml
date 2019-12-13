@@ -69,7 +69,10 @@ repo = 'xuyuanp/nerdtree-git-plugin'
 depends = ['nerdtree']
 
 [[plugins]]
-repo = 'jiangmiao/auto-pairs'
+repo = 'cohama/lexima.vim'
+hook_add = '''
+  let lexima_ctrlh_as_backspace = 1
+'''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
