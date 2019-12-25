@@ -23,4 +23,3 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
 alias t='tmux'
-bindkey -v

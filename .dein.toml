@@ -18,7 +18,14 @@ repo = 'cocopon/iceberg.vim'
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 let g:lightline = {
-  \ 'colorscheme' : 'wombat'
+  \ 'colorscheme' : 'wombat',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'fugitive#head'
+  \ }
 \ }
 '''
 
@@ -68,11 +75,11 @@ repo = 'scrooloose/nerdtree'
 repo = 'xuyuanp/nerdtree-git-plugin'
 depends = ['nerdtree']
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
-hook_add = '''
-  let lexima_ctrlh_as_backspace = 1
-'''
+#[[plugins]]
+#repo = 'cohama/lexima.vim'
+#hook_add = '''
+  #let lexima_ctrlh_as_backspace = 1
+#'''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
