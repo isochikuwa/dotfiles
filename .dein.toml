@@ -75,11 +75,11 @@ repo = 'scrooloose/nerdtree'
 repo = 'xuyuanp/nerdtree-git-plugin'
 depends = ['nerdtree']
 
-#[[plugins]]
-#repo = 'cohama/lexima.vim'
-#hook_add = '''
-  #let lexima_ctrlh_as_backspace = 1
-#'''
+[[plugins]]
+repo = 'cohama/lexima.vim'
+hook_add = '''
+  let lexima_ctrlh_as_backspace = 1
+'''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -152,3 +152,11 @@ on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', '
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app & yarn install"'
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
