@@ -27,16 +27,16 @@ set hlsearch
 
 " mouse
 if has('mouse')
-	set mouse=a
-    if !has('nvim')
-        if has('mouse_sgr')
-            set ttymouse=sgr
-        elseif v:version > 703 || v:version is 703 && has('patch632')
-            set ttymouse=sgr
-        else
-            set ttymouse=xterm2
-        endif
-	endif
+  set mouse=a
+  if !has('nvim')
+    if has('mouse_sgr')
+      set ttymouse=sgr
+    elseif v:version > 703 || v:version is 703 && has('patch632')
+      set ttymouse=sgr
+    else
+      set ttymouse=xterm2
+    endif
+  endif
 endif
 
 " set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
@@ -49,7 +49,7 @@ endif
 
 " dein settings {{{
 if &compatible
-    set nocompatible
+  set nocompatible
 endif
 " dein.vimのディレクトリ
 let s:dein_dir = expand('~/.vim/dein')
@@ -57,21 +57,21 @@ let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 " なければgit clone
 if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
 execute 'set runtimepath^=' . s:dein_repo_dir
 
 if dein#load_state(s:dein_dir)
-    call dein#begin(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-    " 管理するプラグインを記述したファイル
-    let s:toml = '~/.dein.toml'
-    let s:lazy_toml = '~/.dein_lazy.toml'
-    call dein#load_toml(s:toml, {'lazy': 0})
-    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  " 管理するプラグインを記述したファイル
+  let s:toml = '~/.dein.toml'
+  let s:lazy_toml = '~/.dein_lazy.toml'
+  call dein#load_toml(s:toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-    call dein#end()
-    call dein#save_state()
+  call dein#end()
+  call dein#save_state()
 endif
 
 " その他インストールしていないものはこちらに入れる
@@ -96,14 +96,14 @@ set switchbuf=useopen
 
 " filetype毎にインデントを変える
 augroup fileTypeIndent
-    autocmd!
-    autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4
-    autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    autocmd Filetype eruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd Filetype sql setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    autocmd Filetype eruby.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    autocmd Filetype vue syntax sync fromstart
+  autocmd!
+  autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd Filetype eruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd Filetype sql setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd Filetype eruby.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd Filetype vue syntax sync fromstart
 augroup END
 
 " float window
