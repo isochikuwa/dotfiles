@@ -160,3 +160,12 @@ build = 'sh -c "cd app & yarn install"'
 
 [[plugins]]
 repo = 'aklt/plantuml-syntax'
+
+[[plugins]]
+repo = 'weirongxu/plantuml-previewer.vim'
+
+[[plugins]]
+repo = 'tpope/vim-obsession'
+
+[[plugins]]
+repo = 'sharat87/roast.vim'
