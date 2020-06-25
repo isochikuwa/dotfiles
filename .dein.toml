@@ -55,13 +55,6 @@ let g:quickrun_config = {
 repo = 'cespare/vim-toml'
 
 [[plugins]]
-repo = 'jsfaint/gen_tags.vim'
-hook_add = '''
-    let g:gen_tags#ctags_auto_gen = 1
-    let g:gen_tags#gtags_auto_gen = 1
-'''
-
-[[plugins]]
 repo = 'kannokanno/previm'
 # hook_add = "let g:previm_open_cmd = 'open -a google-chrome'"
 
@@ -70,6 +63,9 @@ repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nmap <silent> <Leader>n :<C-u>NERDTree<cr>
+'''
 
 [[plugins]]
 repo = 'xuyuanp/nerdtree-git-plugin'
@@ -102,8 +98,10 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'tpope/vim-rails'
 
-[[plugins]]
-repo = 'mtakezawa0522/nerdtree-ag'
+#[[plugins]]
+#repo = 'mtakezawa0522/nerdtree-ag'
+#[[plugins]]
+#repo = 'vtm9/nerdtree-ag'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -169,3 +167,7 @@ repo = 'tpope/vim-obsession'
 
 [[plugins]]
 repo = 'sharat87/roast.vim'
+
+[[plugins]]
+# NERDTree上に開いてしまう問題
+repo = 'zackhsi/nerdtree-rg.vim'

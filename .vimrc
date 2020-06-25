@@ -25,6 +25,9 @@ set shiftwidth=2
 set ignorecase
 set hlsearch
 
+" key mapping
+let mapleader = "\<Space>"
+
 " mouse
 if has('mouse')
   set mouse=a
@@ -80,14 +83,7 @@ if dein#check_install()
 endif
 
 " colorscheme
-" colorscheme molokai
 colorscheme iceberg
-
-" airlineの設定
-"let g:airline_powerline_fonts = 1
-"set laststatus=2
-"let g:airline_theme = 'molokai'
-"let g:airline#extensions#tabline#enabled = 1
 
 " previm setting
 let g:previm_enable_realtime = 1
@@ -114,4 +110,3 @@ set winblend=30
 set diffopt=internal,filler,algorithm:histogram,indent-heuristic,iwhite
 " 最後あたりに書くこと
 filetype plugin indent on
-
