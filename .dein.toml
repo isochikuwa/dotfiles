@@ -171,3 +171,9 @@ repo = 'sharat87/roast.vim'
 [[plugins]]
 # NERDTree上に開いてしまう問題
 repo = 'zackhsi/nerdtree-rg.vim'
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+hook_add = '''
+  nmap <silent> <Leader>t :<C-u>TagbarToggle<cr>
+'''
