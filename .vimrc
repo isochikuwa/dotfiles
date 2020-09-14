@@ -27,6 +27,8 @@ set hlsearch
 
 " key mapping
 let mapleader = "\<Space>"
+nnoremap <silent> <C-n> :<C-u>cnext<CR>
+nnoremap <silent> <C-p> :<C-u>cprev<CR>
 
 " mouse
 if has('mouse')
@@ -105,6 +107,16 @@ augroup END
 " float window
 set pumblend=30
 set winblend=30
+
+" ripgrepを使う設定
+if executable('rg')
+  let &grepprg = 'rg --vimgrep --hidden'
+  set grepformat=%f:%l:%c:%m
+endif
+augroup AutoQuickFix
+  autocmd!
+  autocmd QuickFixCmdPost *grep* cwindow
+augroup end
 
 " diff option
 set diffopt=internal,filler,algorithm:histogram,indent-heuristic,iwhite
