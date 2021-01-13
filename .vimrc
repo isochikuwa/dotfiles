@@ -85,7 +85,8 @@ if dein#check_install()
 endif
 
 " colorscheme
-colorscheme iceberg
+set background=dark
+colorscheme hybrid
 
 " previm setting
 let g:previm_enable_realtime = 1

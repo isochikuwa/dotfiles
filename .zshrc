@@ -3,7 +3,11 @@ export ZSH=$HOME/.oh-my-zsh
 export LANG=ja_JP.UTF-8
 
 ZSH_THEME="af-magic"
-plugins=(git) 
+plugins=(
+  git
+  poetry
+  npm
+) 
 source $ZSH/oh-my-zsh.sh
 
 setopt nonomatch
@@ -19,9 +23,7 @@ export PATH="/home/takezawa/.gem/ruby/2.7.0:$PATH"
 
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /usr/share/nvm/init-nvm.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
