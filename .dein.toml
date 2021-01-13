@@ -65,16 +65,12 @@ repo = 'kannokanno/previm'
 repo = 'tyru/open-browser.vim'
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-
-[[plugins]]
-repo = 'xuyuanp/nerdtree-git-plugin'
-depends = ['nerdtree']
-
-[[plugins]]
 repo = 'cohama/lexima.vim'
 hook_add = '''
   let lexima_ctrlh_as_backspace = 1
+  call lexima#add_rule({'char': '<', 'input_after': '>', 'filetype': ['rust', 'c']})
+  call lexima#add_rule({'char': '>', 'at': '\%#>', 'leave': 1, 'filetype': ['rust', 'c']})
+  call lexima#add_rule({'char': '<BS>', 'at': '<\%#>', 'delete': 1, 'filetype': ['rust', 'c']})
 '''
 
 [[plugins]]
@@ -98,11 +94,6 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'tpope/vim-rails'
 
-#[[plugins]]
-#repo = 'mtakezawa0522/nerdtree-ag'
-#[[plugins]]
-#repo = 'vtm9/nerdtree-ag'
-
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
@@ -115,6 +106,7 @@ hook_add = '''
   nmap <silent> [coc]h :<C-u>call CocAction('doHover')<cr>
   nmap <silent> [coc]d <Plug>(coc-definition)
   nmap <silent> [coc]rf <Plug>(coc-references)
+  let g:coc_global_extensions = ['coc-rust-analyzer', 'coc-clangd', 'coc-go', 'coc-json', 'coc-python', 'coc-solargraph', 'coc-tsserver', 'coc-vetur', 'coc-yaml']
 '''
 
 [[plugins]]
@@ -149,9 +141,6 @@ repo = 'prettier/vim-prettier'
 on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'vue']
 
 [[plugins]]
-repo = 'tpope/vim-endwise'
-
-[[plugins]]
 repo = 'iamcco/markdown-preview.nvim'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 build = 'sh -c "cd app & yarn install"'
@@ -167,10 +156,6 @@ repo = 'tpope/vim-obsession'
 
 [[plugins]]
 repo = 'sharat87/roast.vim'
-
-[[plugins]]
-# NERDTree上に開いてしまう問題
-repo = 'zackhsi/nerdtree-rg.vim'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
