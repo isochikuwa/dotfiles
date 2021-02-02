@@ -68,9 +68,6 @@ repo = 'tyru/open-browser.vim'
 repo = 'cohama/lexima.vim'
 hook_add = '''
   let lexima_ctrlh_as_backspace = 1
-  call lexima#add_rule({'char': '<', 'input_after': '>', 'filetype': ['rust', 'c']})
-  call lexima#add_rule({'char': '>', 'at': '\%#>', 'leave': 1, 'filetype': ['rust', 'c']})
-  call lexima#add_rule({'char': '<BS>', 'at': '<\%#>', 'delete': 1, 'filetype': ['rust', 'c']})
 '''
 
 [[plugins]]
