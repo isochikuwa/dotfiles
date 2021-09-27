@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set vimrc="~/.config/nvim"
 if [[ ! -d ~/.config/nvim ]]; then
   mkdir -p ~/.config/nvim

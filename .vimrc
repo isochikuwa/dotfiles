@@ -30,6 +30,27 @@ let mapleader = "\<Space>"
 nnoremap <silent> <C-n> :<C-u>cnext<CR>
 nnoremap <silent> <C-p> :<C-u>cprev<CR>
 
+" for wsl2
+if system('uname -a | grep microsoft') != ''
+  "augroup myYank
+    "autocmd!
+    "autocmd TextYankPost * :call system('clip.exe', @")
+    "autocmd TextYankPost + :call system('clip.exe', @")
+  "augroup END
+  let g:clipboard = {
+        \   'name': 'myClipboard',
+        \   'copy': {
+        \      '+': 'win32yank.exe -i',
+        \      '*': 'win32yank.exe -i',
+        \    },
+        \   'paste': {
+        \      '+': 'win32yank.exe -o',
+        \      '*': 'win32yank.exe -o',
+        \   },
+        \   'cache_enabled': 1,
+        \ }
+endif
+
 " mouse
 if has('mouse')
   set mouse=a
