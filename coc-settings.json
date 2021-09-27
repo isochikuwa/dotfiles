@@ -10,5 +10,6 @@
       "rootPatterns": ["elm.json"]
     }
   },
-  "codeLens.enable": true
+  "codeLens.enable": true,
+  "eslint.autoFixOnSave": true
 }

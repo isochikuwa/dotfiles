@@ -1,3 +1,9 @@
+shell:
+  program: /usr/bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
 window:
   padding:
     x: 8
@@ -5,15 +11,23 @@ window:
 
 font:
   normal:
-    family: "Source Han Code JP"
-    style: N
+    family: "HackGen Console"
   bold:
-    family: "Source Han Code JP"
-    style: B
+    family: "HackGen Console"
   italic:
-    family: "Source Han Code JP"
-    style: N It
-  size: 14
+    family: "HackGen Console"
+  #normal:
+    #family: "Source Han Code JP"
+    #style: N
+  #bold:
+    #family: "Source Han Code JP"
+    #style: B
+  #italic:
+    #family: "Source Han Code JP"
+    #style: N It
+  size: 13
+
+east_asian_fullwidth: true
   
 
 # Colors (Iceberg)
