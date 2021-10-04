@@ -39,10 +39,11 @@ let g:lightline = {
   \ 'colorscheme' : 'wombat',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \             [ 'cocstatus', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'fugitive#head'
+  \   'gitbranch': 'fugitive#head',
+  \   'cocstatus': 'coc#status'
   \ }
 \ }
 '''
@@ -119,6 +120,7 @@ hook_add = '''
   nmap <silent> [coc]h :<C-u>call CocAction('doHover')<cr>
   nmap <silent> [coc]d <Plug>(coc-definition)
   nmap <silent> [coc]rf <Plug>(coc-references)
+  nmap <silent> [coc]o :<C-u>CocList outline<cr>
   let g:coc_global_extensions = [
     \ 'coc-rust-analyzer',
     \ 'coc-clangd',
