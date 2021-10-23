@@ -12,16 +12,8 @@ source $ZSH/oh-my-zsh.sh
 
 setopt nonomatch
 # env
-eval "$(pyenv init -)";
-
-export RBENV_ROOT="$HOME/.rbenv"
-export PATH="$RBENV_ROOT/bin:$PATH"
-eval "$(rbenv init -)";
-export PATH="/home/takezawa/.gem/ruby/2.7.0:$PATH"
-
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-
-source /usr/share/nvm/init-nvm.sh
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
