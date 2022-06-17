@@ -1,5 +1,12 @@
-ZSH_THEME="af-magic"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 bindkey -e
+bindkey '^[[Z' reverse-menu-complete
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -30,26 +37,19 @@ zinit snippet OMZP::git
 zinit cdclear -q
 
 setopt promptsubst
-zinit snippet OMZT::gnzh
-zinit snippet OMZL::prompt_info_functions.zsh
-zinit snippet OMZP::mercurial/mercurial.plugin.zsh
-zinit snippet OMZ::themes/af-magic.zsh-theme
 # zinit plugins
 zinit light zsh-users/zsh-completions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light mollifier/cd-gitroot
-zinit load zdharma-continuum/history-search-multi-word
+zinit light zdharma-continuum/history-search-multi-word
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 ### End of zinit plugins
 
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 export PATH="$HOME/bin:$PATH"
-#export PATH="$PATH:/usr/local/go/bin"
-
-#PROMPT='%~ > '
-RPROMPT=''
 
 #autoload -Uz compinit && compinit -u
 autoload -U compinit
@@ -64,11 +64,13 @@ if [ "$(ssh-add -l)" = "The agent has no identities." ] ; then
   ssh-add $HOME/.ssh/id_ed25519 > /dev/null 2>&1
 fi
 
-#alias ls="ls -GF"
 alias ls="ls --color=auto --file-type"
 
 alias tmux='tmux -2'
 alias t='tmux'
-alias adssh='(){sshpass -f $HOME/.ssh/.pass ssh -o StrictHostKeyChecking=no $1}'
+#alias adssh='(){sshpass -f $HOME/.ssh/.pass ssh -o StrictHostKeyChecking=no $1}'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
