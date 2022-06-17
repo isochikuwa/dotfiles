@@ -14,3 +14,8 @@ ln -sf ~/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
 ln -sf ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
+
+if [[ ! -d ~/.config/nvim/plugins ]]; then
+  mkdir -p ~/.config/nvim/plugins
+fi
+ln -sf ~/dotfiles/nvim-treesitter.lua ~/.config/nvim/plugins/nvim-treesitter.lua
