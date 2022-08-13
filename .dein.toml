@@ -81,11 +81,11 @@ repo = 'kannokanno/previm'
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
-hook_add = '''
-  let lexima_ctrlh_as_backspace = 1
-'''
+#[[plugins]]
+#repo = 'cohama/lexima.vim'
+#hook_add = '''
+  #let lexima_ctrlh_as_backspace = 1
+#'''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -121,6 +121,7 @@ hook_add = '''
   nmap <silent> [coc]d <Plug>(coc-definition)
   nmap <silent> [coc]rf <Plug>(coc-references)
   nmap <silent> [coc]o :<C-u>CocList outline<cr>
+  inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
   let g:coc_global_extensions = [
     \ 'coc-rust-analyzer',
     \ 'coc-go',
@@ -134,6 +135,7 @@ hook_add = '''
     \ 'coc-vimlsp',
     \ 'coc-pyright',
     \ 'coc-eslint',
+    \ 'coc-phpls',
   \ ]
 '''
 
@@ -291,3 +293,6 @@ repo = 'Vimjas/vim-python-pep8-indent'
 
 [[plugins]]
 repo = 'rbtnn/vim-ambiwidth'
+
+[[plugins]]
+repo = 'windwp/nvim-autopairs'

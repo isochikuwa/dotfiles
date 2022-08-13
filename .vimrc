@@ -11,7 +11,7 @@ scriptencoding utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932
 set fileformats=unix,dos,mac
-set ambiwidth=double
+set ambiwidth=single
 
 " tab, indent
 set expandtab
@@ -25,6 +25,9 @@ set shiftwidth=2
 set ignorecase
 set hlsearch
 
+" add termdebug
+packadd termdebug
+
 " key mapping
 let mapleader = "\<Space>"
 nnoremap <silent> <C-n> :<C-u>cnext<CR>
@@ -32,20 +35,15 @@ nnoremap <silent> <C-p> :<C-u>cprev<CR>
 
 " for wsl2
 if system('uname -a | grep microsoft') != ''
-  "augroup myYank
-    "autocmd!
-    "autocmd TextYankPost * :call system('clip.exe', @")
-    "autocmd TextYankPost + :call system('clip.exe', @")
-  "augroup END
   let g:clipboard = {
         \   'name': 'myClipboard',
         \   'copy': {
-        \      '+': 'win32yank.exe -i',
-        \      '*': 'win32yank.exe -i',
+        \      '+': 'win32yank.exe -i --crlf',
+        \      '*': 'win32yank.exe -i --crlf',
         \    },
         \   'paste': {
-        \      '+': 'win32yank.exe -o',
-        \      '*': 'win32yank.exe -o',
+        \      '+': 'win32yank.exe -o --lf',
+        \      '*': 'win32yank.exe -o --lf',
         \   },
         \   'cache_enabled': 1,
         \ }
@@ -107,7 +105,7 @@ endif
 
 " colorscheme
 set background=dark
-colorscheme hybrid
+colorscheme gruvbox-material
 
 " previm setting
 let g:previm_enable_realtime = 1
@@ -124,6 +122,7 @@ augroup fileTypeIndent
   autocmd Filetype eruby.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd Filetype vue syntax sync fromstart
+  autocmd Filetype go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 augroup END
 
 " float window
