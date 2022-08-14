@@ -63,45 +63,103 @@ if has('mouse')
   endif
 endif
 
-" set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-" 
-" call dein#begin(expand('~/.vim/dein'))
-" 
-" call dein#add('Shougo/dein.vim')
-" call dein#add('Shougo/unite.vim')
-" call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
-" dein settings {{{
-if &compatible
-  set nocompatible
-endif
-" dein.vimのディレクトリ
-let s:dein_dir = expand('~/.vim/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-" なければgit clone
-if !isdirectory(s:dein_repo_dir)
-  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-endif
-execute 'set runtimepath^=' . s:dein_repo_dir
-
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  " 管理するプラグインを記述したファイル
-  let s:toml = '~/.dein.toml'
-  let s:lazy_toml = '~/.dein_lazy.toml'
-  call dein#load_toml(s:toml, {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-" その他インストールしていないものはこちらに入れる
-if dein#check_install()
-  call dein#install()
-endif
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+
+Plug 'sainnhe/gruvbox-material'
+Plug 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+Plug 'cohama/lexima.vim'
+let lexima_ctrlh_as_backspace = 1
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+  \ 'colorscheme' : 'wombat',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'cocstatus', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'fugitive#head',
+  \   'cocstatus': 'coc#status'
+  \ }
+\ }
+Plug 'thinca/vim-quickrun'
+let g:quickrun_config = {
+    \ '_' : {
+        \ 'runner' : 'vimproc',
+        \ 'runner/vimproc/updatetime' : 40,
+        \ 'outputter' : 'error',
+        \ 'outputter/error/success' : 'buffer',
+        \ 'outputter/error/error' : 'quickfix',
+        \ 'outputter/buffer/opener' : 'botright 8new',
+        \ }
+    \}
+nmap <silent> <Leader>r <Plug>(quickrun)
+Plug 'kannokanno/previm'
+Plug 'mattn/emmet-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+nnoremap [coc] <Nop>
+nmap <space>o [coc]
+nmap <silent> [coc]f <Plug>(coc-format)
+nmap <silent> [coc]<space> :<C-u>CocList<cr>
+nmap <silent> [coc]rn <Plug>(coc-rename)
+nmap <silent> [coc]h :<C-u>call CocAction('doHover')<cr>
+nmap <silent> [coc]d <Plug>(coc-definition)
+nmap <silent> [coc]rf <Plug>(coc-references)
+nmap <silent> [coc]o :<C-u>CocList outline<cr>
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+let g:coc_global_extensions = [
+  \ 'coc-rust-analyzer',
+  \ 'coc-go',
+  \ 'coc-json',
+  \ 'coc-solargraph',
+  \ 'coc-tsserver',
+  \ 'coc-vetur',
+  \ 'coc-yaml',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-vimlsp',
+  \ 'coc-pyright',
+  \ 'coc-eslint',
+  \ 'coc-phpls',
+\ ]
+Plug 'justinmk/vim-dirvish'
+Plug 'kristijanhusak/vim-dirvish-git'
+Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+nnoremap [fzf] <Nop>
+nmap <space>f [fzf]
+nmap <silent> [fzf]b :<C-u>Buffers<cr>
+nmap <silent> [fzf]h :<C-u>History<cr>
+nmap <silent> [fzf]g :<C-u>GFiles<cr>
+Plug 'jpalardy/vim-slime'
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
+let g:slime_dont_ask_default = 1
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'rbtnn/vim-ambiwidth'
+Plug 'scrooloose/nerdcommenter'
+Plug 'isochikuwa/lexima-coc-mapping-resolution'
+
+call plug#end()
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
 " colorscheme
 set background=dark
