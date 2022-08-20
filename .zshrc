@@ -64,7 +64,8 @@ if [ "$(ssh-add -l)" = "The agent has no identities." ] ; then
   ssh-add $HOME/.ssh/id_ed25519 > /dev/null 2>&1
 fi
 
-alias ls="ls --color=auto --file-type"
+#alias ls="ls --color=auto --file-type"
+alias ls="ls --color=auto"
 
 alias tmux='tmux -2'
 alias t='tmux'
