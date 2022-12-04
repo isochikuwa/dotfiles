@@ -43,19 +43,18 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light mollifier/cd-gitroot
 zinit light zdharma-continuum/history-search-multi-word
+zinit light asdf-vm/asdf
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 ### End of zinit plugins
 
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
-
-export PATH="$HOME/bin:$PATH"
-
-#autoload -Uz compinit && compinit -u
-autoload -U compinit
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit && compinit -u
+#autoload -U compinit
 zstyle ':completion:*' menu select
 setopt menu_complete
 compinit
+
+export PATH="$HOME/bin:$PATH"
 
 export EDITOR=$(which nvim)
 
@@ -74,3 +73,6 @@ alias t='tmux'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH="$HOME/.poetry/bin:$PATH"
+#export DISPLAY=`hostname`.mshome.net:0.0

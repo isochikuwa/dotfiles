@@ -13,6 +13,8 @@ set fileencodings=ucs-boms,utf-8,euc-jp,cp932
 set fileformats=unix,dos,mac
 set ambiwidth=single
 
+set formatoptions-=ro
+
 " tab, indent
 set expandtab
 set tabstop=2
@@ -100,9 +102,19 @@ let g:quickrun_config = {
         \ 'outputter' : 'error',
         \ 'outputter/error/success' : 'buffer',
         \ 'outputter/error/error' : 'quickfix',
-        \ 'outputter/buffer/opener' : 'botright 8new',
+        \ 'outputter/buffer/opener' : 'botright ' . &lines / 10 . 'new',
         \ }
     \}
+"let g:quickrun_config = {
+    "\ '_' : {
+        "\ 'runner' : 'vimproc',
+        "\ 'runner/vimproc/updatetime' : 40,
+        "\ 'outputter' : 'error',
+        "\ 'outputter/error/success' : 'buffer',
+        "\ 'outputter/error/error' : 'quickfix',
+        "\ 'outputter/buffer/opener' : 'botright 8new',
+        "\ }
+    "\}
 nmap <silent> <Leader>r <Plug>(quickrun)
 Plug 'kannokanno/previm'
 Plug 'mattn/emmet-vim'
@@ -131,10 +143,11 @@ let g:coc_global_extensions = [
   \ 'coc-pyright',
   \ 'coc-eslint',
   \ 'coc-phpls',
+  \ 'coc-clangd',
 \ ]
-Plug 'justinmk/vim-dirvish'
-Plug 'kristijanhusak/vim-dirvish-git'
-Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
+"Plug 'justinmk/vim-dirvish'
+"Plug 'kristijanhusak/vim-dirvish-git'
+"Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -153,6 +166,10 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'rbtnn/vim-ambiwidth'
 Plug 'scrooloose/nerdcommenter'
 Plug 'isochikuwa/lexima-coc-mapping-resolution'
+Plug 'tpope/vim-rails'
+Plug 'preservim/nerdtree'
+nnoremap <leader>n :NERDTreeToggle<CR>
+Plug 'tyru/open-browser.vim'
 
 call plug#end()
 

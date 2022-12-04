@@ -1,25 +1,21 @@
 {
-  "python.pythonPath": "~/.pyenv/shims/python",
+  "python.pythonPath": "~/.anyenv/envs/pyenv/shims/python",
   "python.venvPath": "~/.cache/pypoetry/virtualenvs",
   "rust-analyzer.procMacro.enable": true,
-  "clangd.path": "/home/takezawa/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
       "filetypes": ["elm"],
       "rootPatterns": ["elm.json"]
-    },
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        }
-      }
     }
   },
   "codeLens.enable": true,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "lisp.enabled": true,
+  "lisp.serverPath": "cl-lsp",
+  "lisp.serverArguments": [],
+  "lisp.toolchainPath": "",
+  "lisp.maxNumberOfProblems": 100,
+  "lisp.trace.server": "off",
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd"
 }
