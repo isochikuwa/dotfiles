@@ -1,4 +1,5 @@
 shell:
+  #program: /usr/bin/zsh
   program: /Windows/System32/wsl.exe
   args:
     - -l
