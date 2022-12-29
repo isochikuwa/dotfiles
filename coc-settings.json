@@ -1,5 +1,4 @@
 {
-  "python.pythonPath": "~/.anyenv/envs/pyenv/shims/python",
   "python.venvPath": "~/.cache/pypoetry/virtualenvs",
   "rust-analyzer.procMacro.enable": true,
   "languageserver": {
@@ -17,5 +16,6 @@
   "lisp.toolchainPath": "",
   "lisp.maxNumberOfProblems": 100,
   "lisp.trace.server": "off",
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd"
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd",
+  "deno.enable": true
 }
