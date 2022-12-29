@@ -1,6 +1,11 @@
 " 最初の方に書くこと
 filetype off
 
+set runtimepath^=~/oasobi/denops/dps_helloworld
+" denops configration
+let g:denops#debug = 1
+
+
 set cursorline
 set termguicolors
 set number
@@ -168,8 +173,12 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'isochikuwa/lexima-coc-mapping-resolution'
 Plug 'tpope/vim-rails'
 Plug 'preservim/nerdtree'
-nnoremap <leader>n :NERDTreeToggle<CR>
+"nnoremap <leader>n :NERDTreeToggle<CR>
 Plug 'tyru/open-browser.vim'
+Plug 'vim-denops/denops.vim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+nnoremap <leader>n :NvimTreeToggle<CR>
 
 call plug#end()
 
@@ -200,6 +209,12 @@ augroup fileTypeIndent
   autocmd Filetype go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 augroup END
 
+" auto comment off
+augroup autoCommentOff
+  autocmd!
+  autocmd BufEnter * setlocal formatoptions-=ro
+augroup END
+
 " float window
 set pumblend=30
 set winblend=30
@@ -213,6 +228,42 @@ augroup AutoQuickFix
   autocmd!
   autocmd QuickFixCmdPost *grep* cwindow
 augroup end
+
+lua << EOF
+-- examples for your init.lua
+
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+-- OR setup with some options
+require("nvim-tree").setup({
+
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+
+      },
+    },
+  },
+  renderer = {
+
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+EOF
 
 " diff option
 set diffopt=internal,filler,algorithm:histogram,indent-heuristic,iwhite
