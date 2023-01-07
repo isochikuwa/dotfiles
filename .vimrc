@@ -178,7 +178,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'vim-denops/denops.vim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
-nnoremap <leader>n :NvimTreeToggle<CR>
+nnoremap <silent> <leader>n :NvimTreeToggle<CR>
 
 call plug#end()
 
