@@ -3,7 +3,7 @@ filetype off
 
 set runtimepath^=~/oasobi/denops/dps_helloworld
 " denops configration
-let g:denops#debug = 1
+let g:denops#debug = 0
 
 
 set cursorline
@@ -156,13 +156,19 @@ let g:coc_global_extensions = [
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-nnoremap [fzf] <Nop>
-nmap <space>f [fzf]
-nmap <silent> [fzf]b :<C-u>Buffers<cr>
-nmap <silent> [fzf]h :<C-u>History<cr>
-nmap <silent> [fzf]g :<C-u>GFiles<cr>
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
+"nnoremap [fzf] <Nop>
+"nmap <space>f [fzf]
+"nmap <silent> [fzf]b :<C-u>Buffers<cr>
+"nmap <silent> [fzf]h :<C-u>History<cr>
+"nmap <silent> [fzf]g :<C-u>GFiles<cr>
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope git_files<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 Plug 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
