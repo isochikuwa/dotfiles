@@ -12,12 +12,11 @@ window:
 
 font:
   normal:
-    family: "HackGen Console"
+    family: "HackGen Console NFJ"
   bold:
-    family: "HackGen Console"
-  italic:
-    family: "HackGen Console"
-  size: 16
+    family: "HackGen Console NFJ"
+    style: "Bold"
+  size: 13
 
 east_asian_fullwidth: true
   
