@@ -186,6 +186,7 @@ Plug 'vim-denops/denops.vim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 nnoremap <silent> <leader>n :NvimTreeToggle<CR>
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
