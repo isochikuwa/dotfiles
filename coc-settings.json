@@ -25,4 +25,10 @@
     "php": ["phpcs", "phpstan"]
   },
   "intelephense.licenceKey": "00JPIEZS6TGOCMF"
+  "lisp.enabled": true,
+  "lisp.serverPath": "cl-lsp",
+  "lisp.serverArguments": [],
+  "lisp.toolchainPath": "",
+  "lisp.maxNumberOfProblems": 100,
+  "lisp.trace.server": "off"
 }
