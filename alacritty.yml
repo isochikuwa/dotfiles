@@ -12,13 +12,11 @@ window:
 
 font:
   normal:
-    family: "HackGen Console NFJ"
+    family: "HackGen Console NF"
   bold:
-    family: "HackGen Console NFJ"
+    family: "HackGen Console NF"
     style: "Bold"
-  size: 13
-
-east_asian_fullwidth: true
+  size: 12
   
 
 # Colors (Iceberg)
