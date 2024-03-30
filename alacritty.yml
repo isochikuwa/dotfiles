@@ -12,20 +12,10 @@ window:
 
 font:
   normal:
-    family: "HackGen Console"
+    family: "HackGen Console NFJ"
   bold:
-    family: "HackGen Console"
-  italic:
-    family: "HackGen Console"
-  #normal:
-    #family: "Source Han Code JP"
-    #style: N
-  #bold:
-    #family: "Source Han Code JP"
-    #style: B
-  #italic:
-    #family: "Source Han Code JP"
-    #style: N It
+    family: "HackGen Console NFJ"
+    style: "Bold"
   size: 13
 
 east_asian_fullwidth: true
