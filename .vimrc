@@ -1,6 +1,11 @@
 " 最初の方に書くこと
 filetype off
 
+"set runtimepath^=~/oasobi/denops/dps_helloworld
+" denops configration
+"let g:denops#debug = 0
+
+
 set cursorline
 set termguicolors
 set number
@@ -77,9 +82,9 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 Plug 'sainnhe/gruvbox-material'
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
+"Plug 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_guide_size = 1
 Plug 'cohama/lexima.vim'
 let lexima_ctrlh_as_backspace = 1
 Plug 'itchyny/lightline.vim'
@@ -105,16 +110,6 @@ let g:quickrun_config = {
         \ 'outputter/buffer/opener' : 'botright ' . &lines / 10 . 'new',
         \ }
     \}
-"let g:quickrun_config = {
-    "\ '_' : {
-        "\ 'runner' : 'vimproc',
-        "\ 'runner/vimproc/updatetime' : 40,
-        "\ 'outputter' : 'error',
-        "\ 'outputter/error/success' : 'buffer',
-        "\ 'outputter/error/error' : 'quickfix',
-        "\ 'outputter/buffer/opener' : 'botright 8new',
-        "\ }
-    "\}
 nmap <silent> <Leader>r <Plug>(quickrun)
 Plug 'kannokanno/previm'
 Plug 'mattn/emmet-vim'
@@ -128,6 +123,9 @@ nmap <silent> [coc]h :<C-u>call CocAction('doHover')<cr>
 nmap <silent> [coc]d <Plug>(coc-definition)
 nmap <silent> [coc]rf <Plug>(coc-references)
 nmap <silent> [coc]o :<C-u>CocList outline<cr>
+nmap <silent> [coc]aa <Plug>(coc-codeaction)
+nmap <silent> [coc]al <Plug>(coc-codeaction-line)
+nmap <silent> [coc]ac <Plug>(coc-codeaction-cursor)
 inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 let g:coc_global_extensions = [
   \ 'coc-rust-analyzer',
@@ -144,20 +142,11 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-phpls',
   \ 'coc-clangd',
+  \ 'coc-diagnostic',
 \ ]
-"Plug 'justinmk/vim-dirvish'
-"Plug 'kristijanhusak/vim-dirvish-git'
-"Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-nnoremap [fzf] <Nop>
-nmap <space>f [fzf]
-nmap <silent> [fzf]b :<C-u>Buffers<cr>
-nmap <silent> [fzf]h :<C-u>History<cr>
-nmap <silent> [fzf]g :<C-u>GFiles<cr>
 Plug 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
@@ -167,9 +156,32 @@ Plug 'rbtnn/vim-ambiwidth'
 Plug 'scrooloose/nerdcommenter'
 Plug 'isochikuwa/lexima-coc-mapping-resolution'
 Plug 'tpope/vim-rails'
-Plug 'preservim/nerdtree'
-nnoremap <leader>n :NERDTreeToggle<CR>
 Plug 'tyru/open-browser.vim'
+"Plug 'vim-denops/denops.vim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+nnoremap <silent> <leader>n :NvimTreeToggle<CR>
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope git_files<cr>
+nnoremap <leader>fr <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+Plug 'tpope/vim-obsession'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+
+"Plug 'dense-analysis/ale'
+"let g:ale_disable_lsp = 1
+"let g:ale_lint_on_enter = 0
+"let g:ale_lint_on_text_changed = 0
+"let g:ale_lint_on_insert_leave = 1
+"let g:ale_lint_on_save = 1
+
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'jason0x43/vim-js-indent'
 
 call plug#end()
 
@@ -196,8 +208,16 @@ augroup fileTypeIndent
   autocmd Filetype sql setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd Filetype eruby.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd Filetype vue syntax sync fromstart
   autocmd Filetype go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+  autocmd Filetype php setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup END
+
+" auto comment off
+augroup autoCommentOff
+  autocmd!
+  autocmd BufEnter * setlocal formatoptions-=ro
 augroup END
 
 " float window
@@ -213,6 +233,61 @@ augroup AutoQuickFix
   autocmd!
   autocmd QuickFixCmdPost *grep* cwindow
 augroup end
+
+lua << EOF
+-- examples for your init.lua
+
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+-- OR setup with some options
+require("nvim-tree").setup({
+
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+
+      },
+    },
+  },
+  renderer = {
+
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+
+require('nvim-treesitter.configs').setup {
+  -- ensure_installed = {'cpp', 'python', 'ruby', 'javascript', 'markdown'},
+  ensure_installed = 'all',
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true
+  },
+}
+
+vim.opt.list = true
+
+require("indent_blankline").setup {
+  space_char_blankline = " ",
+  show_current_context = true,
+  show_current_context_start = true,
+}
+EOF
 
 " diff option
 set diffopt=internal,filler,algorithm:histogram,indent-heuristic,iwhite
