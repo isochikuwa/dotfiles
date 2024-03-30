@@ -1,9 +1,9 @@
 " 最初の方に書くこと
 filetype off
 
-set runtimepath^=~/oasobi/denops/dps_helloworld
+"set runtimepath^=~/oasobi/denops/dps_helloworld
 " denops configration
-let g:denops#debug = 0
+"let g:denops#debug = 0
 
 
 set cursorline
@@ -82,9 +82,9 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 Plug 'sainnhe/gruvbox-material'
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
+"Plug 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_guide_size = 1
 Plug 'cohama/lexima.vim'
 let lexima_ctrlh_as_backspace = 1
 Plug 'itchyny/lightline.vim'
@@ -123,6 +123,9 @@ nmap <silent> [coc]h :<C-u>call CocAction('doHover')<cr>
 nmap <silent> [coc]d <Plug>(coc-definition)
 nmap <silent> [coc]rf <Plug>(coc-references)
 nmap <silent> [coc]o :<C-u>CocList outline<cr>
+nmap <silent> [coc]aa <Plug>(coc-codeaction)
+nmap <silent> [coc]al <Plug>(coc-codeaction-line)
+nmap <silent> [coc]ac <Plug>(coc-codeaction-cursor)
 inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
 let g:coc_global_extensions = [
   \ 'coc-rust-analyzer',
@@ -139,6 +142,7 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-phpls',
   \ 'coc-clangd',
+  \ 'coc-diagnostic',
 \ ]
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -153,7 +157,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'isochikuwa/lexima-coc-mapping-resolution'
 Plug 'tpope/vim-rails'
 Plug 'tyru/open-browser.vim'
-Plug 'vim-denops/denops.vim'
+"Plug 'vim-denops/denops.vim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 nnoremap <silent> <leader>n :NvimTreeToggle<CR>
@@ -166,6 +170,18 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 Plug 'tpope/vim-obsession'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+
+"Plug 'dense-analysis/ale'
+"let g:ale_disable_lsp = 1
+"let g:ale_lint_on_enter = 0
+"let g:ale_lint_on_text_changed = 0
+"let g:ale_lint_on_insert_leave = 1
+"let g:ale_lint_on_save = 1
+
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'jason0x43/vim-js-indent'
 
 call plug#end()
 
@@ -192,8 +208,10 @@ augroup fileTypeIndent
   autocmd Filetype sql setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd Filetype eruby.yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd Filetype vue syntax sync fromstart
   autocmd Filetype go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+  autocmd Filetype php setlocal tabstop=4 softtabstop=4 shiftwidth=4
 augroup END
 
 " auto comment off
@@ -260,6 +278,14 @@ require('nvim-treesitter.configs').setup {
   indent = {
     enable = true
   },
+}
+
+vim.opt.list = true
+
+require("indent_blankline").setup {
+  space_char_blankline = " ",
+  show_current_context = true,
+  show_current_context_start = true,
 }
 EOF
 

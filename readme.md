@@ -1,7 +1,7 @@
 # 最初の操作方法
 ## Zsh
 - Oh My Zshのインストール
-```
+```sh
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 ```
 

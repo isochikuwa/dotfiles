@@ -77,3 +77,8 @@ alias t='tmux'
 #export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 #export DISPLAY=`hostname`.mshome.net:0.0
+
+export PATH="$PATH:$(go env GOPATH)/bin"
+source "$HOME/.rye/env"
+
+[ -f "/home/isochikuwa/.ghcup/env" ] && source "/home/isochikuwa/.ghcup/env" # ghcup-env
