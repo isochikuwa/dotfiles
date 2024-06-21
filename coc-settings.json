@@ -1,18 +1,34 @@
 {
-  "python.venvPath": "~/.cache/pypoetry/virtualenvs",
-  "rust-analyzer.procMacro.enable": true,
-  "rust-analyzer.lens.debug.enable": false,
-  "rust-analyzer.lens.run.enable": false,
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
       "filetypes": ["elm"],
       "rootPatterns": ["elm.json"]
+    },
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "filetypes": ["haskell", "lhaskell"]
     }
   },
+  "python.venvPath": "~/.cache/pypoetry/virtualenvs",
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.lens.debug.enable": false,
+  "rust-analyzer.lens.run.enable": false,
   "codeLens.enable": true,
   "eslint.autoFixOnSave": true,
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd",
   "deno.enable": false,
-  "tsserver.enable": true
+  "tsserver.enable": true,
+  "diagnostic-languageserver.filetypes": {
+    "php": ["phpcs", "phpstan"]
+  },
+  "intelephense.licenceKey": "00JPIEZS6TGOCMF"
+  "lisp.enabled": true,
+  "lisp.serverPath": "cl-lsp",
+  "lisp.serverArguments": [],
+  "lisp.toolchainPath": "",
+  "lisp.maxNumberOfProblems": 100,
+  "lisp.trace.server": "off"
 }

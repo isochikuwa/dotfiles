@@ -75,5 +75,11 @@ alias t='tmux'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="$HOME/.poetry/bin:$PATH"
+#export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 #export DISPLAY=`hostname`.mshome.net:0.0
+
+export PATH="$PATH:$(go env GOPATH)/bin"
+source "$HOME/.rye/env"
+
+[ -f "/home/isochikuwa/.ghcup/env" ] && source "/home/isochikuwa/.ghcup/env" # ghcup-env
