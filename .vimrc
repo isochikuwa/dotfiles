@@ -110,16 +110,6 @@ let g:quickrun_config = {
         \ 'outputter/buffer/opener' : 'botright ' . &lines / 10 . 'new',
         \ }
     \}
-"let g:quickrun_config = {
-    "\ '_' : {
-        "\ 'runner' : 'vimproc',
-        "\ 'runner/vimproc/updatetime' : 40,
-        "\ 'outputter' : 'error',
-        "\ 'outputter/error/success' : 'buffer',
-        "\ 'outputter/error/error' : 'quickfix',
-        "\ 'outputter/buffer/opener' : 'botright 8new',
-        "\ }
-    "\}
 nmap <silent> <Leader>r <Plug>(quickrun)
 Plug 'kannokanno/previm'
 Plug 'mattn/emmet-vim'
@@ -150,19 +140,9 @@ let g:coc_global_extensions = [
   \ 'coc-phpls',
   \ 'coc-clangd',
 \ ]
-"Plug 'justinmk/vim-dirvish'
-"Plug 'kristijanhusak/vim-dirvish-git'
-"Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
-"nnoremap [fzf] <Nop>
-"nmap <space>f [fzf]
-"nmap <silent> [fzf]b :<C-u>Buffers<cr>
-"nmap <silent> [fzf]h :<C-u>History<cr>
-"nmap <silent> [fzf]g :<C-u>GFiles<cr>
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -179,8 +159,6 @@ Plug 'rbtnn/vim-ambiwidth'
 Plug 'scrooloose/nerdcommenter'
 Plug 'isochikuwa/lexima-coc-mapping-resolution'
 Plug 'tpope/vim-rails'
-Plug 'preservim/nerdtree'
-"nnoremap <leader>n :NERDTreeToggle<CR>
 Plug 'tyru/open-browser.vim'
 Plug 'vim-denops/denops.vim'
 Plug 'nvim-tree/nvim-web-devicons'
