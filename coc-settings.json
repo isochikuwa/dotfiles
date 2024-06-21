@@ -19,16 +19,9 @@
   "codeLens.enable": true,
   "eslint.autoFixOnSave": true,
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd",
-  "deno.enable": false,
   "tsserver.enable": true,
   "diagnostic-languageserver.filetypes": {
     "php": ["phpcs", "phpstan"]
   },
   "intelephense.licenceKey": "00JPIEZS6TGOCMF"
-  "lisp.enabled": true,
-  "lisp.serverPath": "cl-lsp",
-  "lisp.serverArguments": [],
-  "lisp.toolchainPath": "",
-  "lisp.maxNumberOfProblems": 100,
-  "lisp.trace.server": "off"
 }
