@@ -63,7 +63,8 @@ if [ "$(ssh-add -l)" = "The agent has no identities." ] ; then
   ssh-add $HOME/.ssh/id_ed25519 > /dev/null 2>&1
 fi
 
-alias ls="ls --color=auto --file-type"
+#alias ls="ls --color=auto --file-type"
+alias ls="ls --color=auto"
 
 alias tmux='tmux -2'
 alias t='tmux'
@@ -79,6 +80,6 @@ export PATH="$HOME/.local/bin:$PATH"
 #export DISPLAY=`hostname`.mshome.net:0.0
 
 export PATH="$PATH:$(go env GOPATH)/bin"
-source "$HOME/.rye/env"
+#source "$HOME/.rye/env"
 
-[ -f "/home/isochikuwa/.ghcup/env" ] && source "/home/isochikuwa/.ghcup/env" # ghcup-env
+#[ -f "/home/isochikuwa/.ghcup/env" ] && source "/home/isochikuwa/.ghcup/env" # ghcup-env

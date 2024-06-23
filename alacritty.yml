@@ -1,6 +1,7 @@
 shell:
   #program: /usr/bin/zsh
   program: /Windows/System32/wsl.exe
+  #program: /opt/homebrew/bin/zsh
   args:
     - -l
     - -c
