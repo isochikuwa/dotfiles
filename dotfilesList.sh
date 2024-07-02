@@ -11,7 +11,8 @@ ln -sf ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -sf ~/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.tigrc ~/.tigrc
-ln -sf ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
+#ln -sf ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -sf ~/dotfiles/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 if [[ ! -d ~/.config/nvim/plugins ]]; then
   mkdir -p ~/.config/nvim/plugins
