@@ -80,5 +80,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export PATH="$PATH:$(go env GOPATH)/bin"
 #source "$HOME/.rye/env"
+export TERMINAL=alacritty
 
 [ -f "/home/isochikuwa/.ghcup/env" ] && source "/home/isochikuwa/.ghcup/env" # ghcup-env
